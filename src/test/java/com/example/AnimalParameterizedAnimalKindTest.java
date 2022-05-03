@@ -25,18 +25,13 @@ public class AnimalParameterizedAnimalKindTest {
         return new Object[][]{
                 {"Травоядное", List.of("Трава", "Различные растения")},
                 {"Хищник", List.of("Животные", "Птицы", "Рыба")},
-                {"Неизвестный", List.of()},
         };
     }
 
     @Test
-    public void shouldBeGetFoodForAnimalKindOrException() {
+    public void shouldBeGetFoodForAnimalKind() throws Exception {
         Animal animal = new Animal();
-        try {
             List<String> actual = animal.getFood(animalKind);
             assertEquals(expectedAnimalFood, actual);
-        } catch (Exception thrown) {
-            assertEquals(exceptionText, thrown.getMessage());
-        }
     }
 }
