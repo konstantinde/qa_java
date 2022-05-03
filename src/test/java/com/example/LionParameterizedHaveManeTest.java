@@ -26,20 +26,15 @@ public class LionParameterizedHaveManeTest {
         return new Object[][] {
                 {"Самец", true},
                 {"Самка", false},
-                {"Оно", false},
         };
     }
 
     @Test
-    public void shouldLionHaveManeOrException() {
+    public void shouldLionHaveMane() throws Exception {
         Feline feline = new Feline();
-        try {
             Lion lion = new Lion(lionSex, feline);
             boolean actual = lion.doesHaveMane();
             assertEquals(isMane, actual);
-        } catch (Exception thrown) {
-            assertEquals(expectedExceptionText, thrown.getMessage());
-        }
     }
 
 }
