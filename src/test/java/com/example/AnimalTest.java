@@ -1,8 +1,15 @@
 package com.example;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import java.util.List;
+
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 public class AnimalTest {
 
@@ -25,12 +32,9 @@ public class AnimalTest {
     @Test
     public void shouldBeGetExceptionWhenGetFoodForOtherAnimalKind() {
         Animal animal = new Animal();
-        String expected = "Неизвестный вид животного, используйте значение Травоядное или Хищник";
-        try {
-            animal.getFood("Неизвестный вид");
-        } catch (Exception thrown) {
-            assertEquals(expected, thrown.getMessage());
-        }
+        Exception exception = assertThrows(Exception.class, () -> animal.getFood("Неизвестный"));
+        String expectedExceptionMessage = "Неизвестный вид животного, используйте значение Травоядное или Хищник";
+        assertEquals(expectedExceptionMessage, exception.getMessage());
     }
 
     @Test
