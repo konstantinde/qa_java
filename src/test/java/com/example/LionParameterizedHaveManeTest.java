@@ -1,13 +1,10 @@
 package com.example;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class LionParameterizedHaveManeTest {
@@ -23,7 +20,7 @@ public class LionParameterizedHaveManeTest {
 
     @Parameterized.Parameters
     public static Object[][] getHaveManeData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"Самец", true},
                 {"Самка", false},
         };
@@ -32,9 +29,9 @@ public class LionParameterizedHaveManeTest {
     @Test
     public void shouldLionHaveMane() throws Exception {
         Feline feline = new Feline();
-            Lion lion = new Lion(lionSex, feline);
-            boolean actual = lion.doesHaveMane();
-            assertEquals(isMane, actual);
+        Lion lion = new Lion(lionSex, feline);
+        boolean actual = lion.doesHaveMane();
+        assertEquals(isMane, actual);
     }
 
 }

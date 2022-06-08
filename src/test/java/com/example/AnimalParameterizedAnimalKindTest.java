@@ -13,7 +13,6 @@ public class AnimalParameterizedAnimalKindTest {
 
     private final String animalKind;
     private final List<String> expectedAnimalFood;
-    private final String exceptionText = "Неизвестный вид животного, используйте значение Травоядное или Хищник";
 
     public AnimalParameterizedAnimalKindTest(String animalKind, List<String> animalFood) {
         this.animalKind = animalKind;
@@ -31,7 +30,7 @@ public class AnimalParameterizedAnimalKindTest {
     @Test
     public void shouldBeGetFoodForAnimalKind() throws Exception {
         Animal animal = new Animal();
-            List<String> actual = animal.getFood(animalKind);
-            assertEquals(expectedAnimalFood, actual);
+        List<String> actual = animal.getFood(animalKind);
+        assertEquals(expectedAnimalFood, actual);
     }
 }
